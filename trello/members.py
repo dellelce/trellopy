@@ -26,7 +26,7 @@ class Members(object):
     def get_board(self, idMember_or_username, filter=None, fields=None, actions=None, actions_limit=None, actions_format=None, actions_since=None, action_fields=None, lists=None):
         resp = requests.get("https://trello.com/1/members/%s/boards" % (idMember_or_username), params=dict(key=self._apikey, token=self._token, filter=filter, fields=fields, actions=actions, actions_limit=actions_limit, actions_format=actions_format, actions_since=actions_since, action_fields=action_fields, lists=lists), data=None)
         resp.raise_for_status()
-        return json.loads(resp.content)
+        return json.loads(resp.content.decode())
 
     def get_board_filter(self, filter, idMember_or_username):
         resp = requests.get("https://trello.com/1/members/%s/boards/%s" % (idMember_or_username, filter), params=dict(key=self._apikey, token=self._token), data=None)
