@@ -88,8 +88,8 @@ class Boards(object):
         resp.raise_for_status()
         return json.loads(resp.content)
 
-    def update(self, board_id, name=None, desc=None, closed=None, idOrganization=None, prefs/permissionLevel=None, prefs/selfJoin=None, prefs/cardCovers=None, prefs/invitations=None, prefs/voting=None, prefs/comments=None):
-        resp = requests.put("https://trello.com/1/boards/%s" % (board_id), params=dict(key=self._apikey, token=self._token), data=dict(name=name, desc=desc, closed=closed, idOrganization=idOrganization, prefs/permissionLevel=prefs/permissionLevel, prefs/selfJoin=prefs/selfJoin, prefs/cardCovers=prefs/cardCovers, prefs/invitations=prefs/invitations, prefs/voting=prefs/voting, prefs/comments=prefs/comments))
+    def update(self, board_id, name=None, desc=None, closed=None, idOrganization=None, prefs_permissionLevel=None, prefs_selfJoin=None, prefs_cardCovers=None, prefs_invitations=None, prefs_voting=None, prefs_comments=None):
+        resp = requests.put("https://trello.com/1/boards/%s" % (board_id), params=dict(key=self._apikey, token=self._token), data=dict(name=name, desc=desc, closed=closed, idOrganization=idOrganization, prefs_permissionLevel=prefs_permissionLevel, prefs_selfJoin=prefs_selfJoin, prefs_cardCovers=prefs_cardCovers, prefs_invitations=prefs_invitations, prefs_voting=prefs_voting, prefs_comments=prefs_comments))
         resp.raise_for_status()
         return json.loads(resp.content)
 
